@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :tweets, except: [:edit,:update]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  resources :users
   root "tweets#index"
+
 end
