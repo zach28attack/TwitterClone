@@ -1,4 +1,4 @@
-<%= form_with(model: tweet) do |form| %>
+<%= form_with(model: tweet) do |f| %>
   <% if tweet.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
@@ -11,7 +11,44 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+
+  <div class="mb-20">
+    <%= f.label :body, "What's on your mind?", class: "col-form-label"%>
+    <%= f.text_field :body %>
   </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Private Tweet(visible only to your followers)</label>
+  </div>
+  <%= f.submit "Tweet", class: "btn btn-primary"%>
+
+
+
+
+
+
+
+
+
+
+
+  <%
+=begin%>
+ <div class = "container">
+    <%= f.label :title, class: "col-2 col-form-label text-light fs-4" %>
+    <div class = "col-10">
+          <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of article" %>
+      </div>
+    </div>
+
+    <div class = "form-group row">
+      <%= f.label :body, class: "col-2 col-form-label text-light fs-4" %> 
+      <div class = "col-10" >
+          <%= f.text_area :body, rows: 10, class: "form-control shadow rounded", placeholder: "Description of article"  %> 
+      </div>
+    </div>
+  </div>        
+<%
+=end%>
+
 <% end %>
