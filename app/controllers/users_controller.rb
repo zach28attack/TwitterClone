@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
         session[:user_id] = @user.id
-        flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have successfully signed up!"
-        redirect_to articles_path
+        flash[:notice] = "Welcome to the TwitterClone #{@user.username}, you have successfully signed up!"
+        redirect_to tweets_path
     else
         render 'new', status: :unprocessable_entity
     end
