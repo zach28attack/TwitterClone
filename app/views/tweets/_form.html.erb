@@ -13,14 +13,11 @@
 
   <div class = "container">
     <div class = "row justify-content-center">
-      <div class="card" style="width: 25rem;">
+      <div class="card" style="height: 20rem; width: 35rem;">
         <div class="card-body">
           <%= f.label :body, "What's on your mind?", class: "card-title col-form-label"%>
-          <%= f.text_field :body %>
-          <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Private Tweet(visible only to your followers)</label>
-          </div>
+          <%= f.text_area :body, rows: 8, class: "form-control" %>
+          
           <%= f.submit "Tweet", class: "btn btn-primary"%>
         </div>
       </div>
