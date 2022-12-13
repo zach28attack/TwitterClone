@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   def index
     @tweet = Tweet.new
     @tweets = Tweet.all
-    @tweets = @tweets.reverse
+    @tweets = @tweets.order(created_at: :desc)
   end
 
   # GET /tweets/1 or /tweets/1.json
