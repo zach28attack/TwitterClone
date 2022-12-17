@@ -5,8 +5,7 @@
   <div class = "justify-content-center">
     <%= render 'form', tweet: @tweet if user_signed_in?%>
     <% @tweets.each do |tweet| %>
-      <%= render tweet %>
-      
+      <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet} %>
     <% end %>
   </div>
 </div>

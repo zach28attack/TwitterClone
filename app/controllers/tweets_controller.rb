@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  require 'debug'
+  before_action :set_tweet, only: %i[ show edit update destroy retweet ]
 
   # GET /tweets or /tweets.json
   def index
@@ -36,6 +37,16 @@ class TweetsController < ApplicationController
     end
   end
 
+  def retweet
+    retweet = current_user.tweets.new(tweet_id: @tweet.id)
+    if retweet.save
+      redirect_to tweets_path
+    else
+      redirect_to tweets_path, alert: "unable to retweet"
+    end
+
+  end
+
   
 
   # DELETE /tweets/1 or /tweets/1.json
@@ -56,6 +67,6 @@ class TweetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tweet_params
-      params.require(:tweet).permit(:body)
+      params.require(:tweet).permit(:body, :tweet_id, :user_id)
     end
 end
