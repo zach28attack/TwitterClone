@@ -3,7 +3,9 @@ class Tweet < ApplicationRecord
   belongs_to :user
   belongs_to :tweet, optional: true
 
-  def tweet_type
+  validates :body, length: { maximum: 240 }, allow_blank: false, unless: :tweet_id
+
+  def tweet_type #add quote tweet functionality
     if tweet_id? && body?
       "quote-tweet"
     elsif tweet_id?

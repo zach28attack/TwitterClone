@@ -9,7 +9,6 @@
         
         
         <a href="#" class="card-link">Likes:<%=tweet.likes%></a>
-        <a href="#" class="card-link">share</a>
         <%= button_to 'Retweet', retweet_tweet_path(tweet), method: :post if user_signed_in? && tweet.user.id != current_user.id%>
 
       </div>
