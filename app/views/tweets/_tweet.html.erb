@@ -2,7 +2,7 @@
   <div class = "row justify-content-center">
     <div class="card" style="width: 35rem;">
       <div class="card-body">        
-        <h5 class="card-title" id="email"><%="#{tweet.user.email}"%></h5>
+        <h5 class="card-title" id="email"><%="@#{tweet.user.username}"%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=tweet.created_at%></h6>
         <p class="card-text"><%= tweet.body%></p>
         <a href="#" class="card-link">replies</a>
