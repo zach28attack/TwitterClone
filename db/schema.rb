@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_16_203522) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_30_220030) do
+  create_table "comments", force: :cascade do |t|
+    t.integer "tweet_id", null: false
+    t.integer "user_id", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tweet_id"], name: "index_comments_on_tweet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.integer "tweet_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
@@ -19,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203522) do
     t.datetime "updated_at", null: false
     t.integer "likes"
     t.integer "tweet_id"
+    t.integer "reply_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,4 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "tweets"
+  add_foreign_key "comments", "users"
+  add_foreign_key "replies", "tweets"
+  add_foreign_key "tweets", "replies"
 end
