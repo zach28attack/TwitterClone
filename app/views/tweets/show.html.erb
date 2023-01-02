@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @tweet %>
+<%= render @tweet.comments %>
+
 
 <div>
   <%= link_to "Back to tweets", tweets_path %>
