@@ -2,6 +2,7 @@
 
 <%= render @tweet %>
 <%= render @tweet.comments %>
+<%= render partial: 'comments/form', locals:{tweet: @tweet} %>
 
 
 <div>
