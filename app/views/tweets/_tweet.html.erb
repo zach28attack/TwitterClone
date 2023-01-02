@@ -4,13 +4,10 @@
       <div class="card-body">        
         <h5 class="card-title" id="email"><%="@#{tweet.user.username}"%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=tweet.created_at.day%>/<%=tweet.created_at.month%>/<%=tweet.created_at.year%></h6>
-        <p class="card-text"><%= tweet.body%></p>
-        <a href="#" class="card-link">replies</a>
-        
-        
+        <p class="card-text"><%=tweet.body%></p>
+        <%= link_to "Replies", tweet, class: "card-link" %>
         <a href="#" class="card-link">Likes:<%=tweet.likes%></a>
         <%= button_to 'Retweet', retweet_tweet_path(tweet), method: :post if user_signed_in? && tweet.user.id != current_user.id%>
-
       </div>
     </div>
   </div>
