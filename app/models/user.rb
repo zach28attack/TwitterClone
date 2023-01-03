@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :tweets 
   has_many :comments
+  has_many :likes
 
   validates :username, uniqueness: {case_sensitive: false}
   validates_length_of :username, in: 3..15
