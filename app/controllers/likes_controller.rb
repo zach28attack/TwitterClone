@@ -5,14 +5,14 @@ class LikesController < ApplicationController
     if !@like.save
       flash[:notice] = @like.errors.full_messages 
     end
-    redirect_to tweet_path(@like)
+    redirect_back fallback_location: tweets_path 
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
     tweet = @like.tweet
     @like.destroy
-    redirect_to tweet
+    redirect_back fallback_location: tweets_path 
   end
 
   private
