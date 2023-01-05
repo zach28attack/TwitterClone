@@ -8,12 +8,20 @@
         <p class="card-text"><%=tweet.body%></p>
 
         <% if user_signed_in?%>
-          <% like = current_user.likes.find_by(tweet: tweet)%>
+         
+          <% if tweet.likes.count > 1 %>
+            <%= tweet.likes.count%> Likes
+          <%else%>
+            <%= tweet.likes.count%> Like
+          <%end%>
+
+          <% like = current_user.likes.find_by(likeable: tweet)%>
           <% if like.nil?%>
-            <%= button_to "♡", likes_path, class: "card-link", params: {like: {tweet_id: tweet.id} } , method: :post%>
+            <%= button_to "♡", likes_path, class: "card-link", params: {like: {likeable_id: tweet.id, likeable_type: "Tweet"} } , method: :post%>
           <%else%>
             <%= button_to "❤️", like_path(like), class: "card-link", method: :delete%>
           <%end%>
+
         <%end%>
         <%= link_to "Replies", tweet, class: "card-link" %>
         <%= button_to 'Retweet', retweet_tweet_path(tweet), method: :post if user_signed_in? && tweet.user.id != current_user.id%>
