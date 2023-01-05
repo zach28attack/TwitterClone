@@ -5,7 +5,10 @@
         <h5 class="card-title" id="username">@<%=comment.user.username%></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%=comment.created_at.day%>/<%=comment.created_at.month%>/<%=comment.created_at.year%></h6>
         <p class="card-text"><%=comment.body%></p>
-        <a href="#" class="card-link">Likes:</a>
+        
+        <% if user_signed_in?%>
+         <%= render partial: 'likes/button', locals: {likeable: comment} %>
+        <%end%>
       </div>
     </div>
   </div>
