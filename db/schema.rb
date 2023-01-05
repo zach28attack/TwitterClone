@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_201338) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_05_030017) do
   create_table "comments", force: :cascade do |t|
     t.integer "tweet_id", null: false
     t.integer "user_id", null: false
@@ -58,6 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_201338) do
 
   add_foreign_key "comments", "tweets"
   add_foreign_key "comments", "users"
-  add_foreign_key "likes", "tweets", column: "likeable_id"
   add_foreign_key "likes", "users"
 end
