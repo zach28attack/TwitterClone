@@ -6,11 +6,12 @@ class LikesController < ApplicationController
       flash[:notice] = @like.errors.full_messages 
     end
     redirect_back fallback_location: tweets_path 
+    #redirect_to likeable
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
-    tweet = @like.tweet
+    likeable = @like.likeable
     @like.destroy
     redirect_back fallback_location: tweets_path 
   end
@@ -18,7 +19,7 @@ class LikesController < ApplicationController
   private
 
   def like_params
-    params.require(:like).permit(:tweet_id)
+    params.require(:like).permit(:likeable_id, :likeable_type)
   end
 
 end
