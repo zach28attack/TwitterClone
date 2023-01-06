@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+<h1 class = "text-center"><%= @user.username%></h1>
+
+<div class = "container" id="tweets">
+  <div class = "justify-content-center">
+    <% @user.tweets.each do |tweet| %>
+      <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet} %>
+    <% end %>
+  </div>
+</div>
