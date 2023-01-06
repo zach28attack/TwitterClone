@@ -4,7 +4,20 @@
 
       <div class="card-body">        
         <h5 class="card-title" id="email"><%=link_to "@#{tweet.user.username}", user_path(tweet.user_id)%></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%=tweet.created_at.day%>/<%=tweet.created_at.month%>/<%=tweet.created_at.year%></h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%=tweet.created_at.month%>/<%=tweet.created_at.day%>/<%=tweet.created_at.year%></br>
+          <div class= "text-muted fst-italic">
+            <% day = ((Time.new - tweet.created_at)/86400).to_i %>
+            <% if day > 1 %>
+              <%= "#{day} days ago" %>
+            <% elsif day == 1 %>
+              <%= "#{day} day ago" %>
+            <%elsif day < 1%>
+              <%= "#{((Time.new - tweet.created_at)/60).to_i} minutes ago" %>
+            <%end%>
+          </div>
+        </h6>
+
         <p class="card-text"><%=tweet.body%></p>
         
         <% if user_signed_in?%>
