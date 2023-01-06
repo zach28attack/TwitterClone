@@ -1,7 +1,12 @@
-<form action="<%=tweet_comments_path(tweet)%>" method="post">
-  <div style="margin:0;padding:0">
-    <input name="authenticity_token" type="hidden" value="f755bb0ed134b76c432144748a6d4b7a7ddf2b71" />
+<div class= "d-flex justify-content-center">
+  <div class= "card" style= "width: 25rem;">
+    <div class= "card-body">        
+      <form action= "<%=tweet_comments_path(tweet)%>" method= "post">
+        <textarea name= "comment[body]" rows= "6" cols= "35"></textarea></br>
+        <input type= "submit" value= "Submit" class= "btn btn-primary">
+      </form>
+    </div>
   </div>
-  <<textarea name="comment[body]" rows="6" cols="20"></textarea>>
-  <input type="submit" value="Submit">
-</form>
+</div>
+  
+
