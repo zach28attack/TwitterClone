@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: %i[show]
   resources :tweets, except: %i[edit update] do
     resources :comments, only: %i{create}
     member do
