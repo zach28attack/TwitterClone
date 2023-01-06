@@ -1,11 +1,14 @@
-<% if likeable.likes.count > 1 %>
-  <%= likeable.likes.count%> Likes
-<%else%>
-  <%= likeable.likes.count%> Like
-<%end%>
-<% like = current_user.likes.find_by(likeable: likeable)%>
-<% if like.nil?%>
-  <%= button_to "♡", likes_path, class: "card-link btn", params: {like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s } } , method: :post%>
-<%else%>
-  <%= button_to "❤️", like_path(like), class: "card-link btn", method: :delete%>
-<%end%>
+<div class= "d-flex justify-content-start align-items-end">
+    <% if likeable.likes.count > 1 %>
+      <% likes_count = "#{likeable.likes.count} Likes" %>
+    <%else%>
+      <% likes_count = "#{likeable.likes.count} Like" %>
+    <%end%>
+
+    <% like = current_user.likes.find_by(likeable: likeable)%>
+    <% if like.nil?%>
+      <%= button_to "♡", likes_path, class: "card-link btn", params: {like: {likeable_id: likeable.id, likeable_type: likeable.class.to_s } } , method: :post%><%= likes_count%>
+    <%else%>
+      <%= button_to "❤️", like_path(like), class: "card-link btn", method: :delete%><%= likes_count%>
+    <%end%>
+ </div>
