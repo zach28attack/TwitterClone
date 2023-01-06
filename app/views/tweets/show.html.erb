@@ -1,12 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @tweet %>
-<%= render @tweet.comments %>
 <%= render partial: 'comments/form', locals:{tweet: @tweet} %>
+<%= render @tweet.comments %>
+
 
 
 <div>
   <%= link_to "Back to tweets", tweets_path %>
-
-  <%= button_to "Delete tweet", @tweet, method: :delete %>
+  <% if current_user == @tweet.user %>
+    <%= button_to "Delete tweet", @tweet, method: :delete %>
+  <%end%>
 </div>
