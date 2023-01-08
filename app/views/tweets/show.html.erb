@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @tweet %>
-<%= render partial: 'comments/form', locals:{tweet: @tweet} %>
+<% if user_signed_in?%>
+  <%= render partial: 'comments/form', locals:{tweet: @tweet} %>
+<%end%>  
 <%= render @tweet.comments %>
 
 
