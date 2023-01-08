@@ -9,6 +9,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    
   end
 
 
@@ -18,7 +19,7 @@ class PhotosController < ApplicationController
     @photo.user_id = current_user.id
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to user_path, notice: "Photo was successfully created." }
+        format.html { redirect_to user_path(current_user), notice: "Photo was successfully created." }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new, status: :unprocessable_entity }
