@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_07_162453) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_08_192423) do
   create_table "comments", force: :cascade do |t|
     t.integer "tweet_id", null: false
     t.bigint "user_id", null: false
@@ -31,6 +31,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_162453) do
     t.index ["likeable_id"], name: "index_likes_on_likeable_id"
     t.index ["user_id", "likeable_id", "likeable_type"], name: "index_likes_on_user_id_and_likeable_id_and_likeable_type", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.text "image_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tweets", force: :cascade do |t|
