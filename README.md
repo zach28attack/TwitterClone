@@ -1,4 +1,4 @@
-This app is uncompleted.
+📖 This app is uncompleted. 
 
 My current list of tasks to compleete are...
 
