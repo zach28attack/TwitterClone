@@ -1,24 +1,14 @@
-# README
+This app is uncompleted.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My current list of tasks to compleete are...
 
-Things you may want to cover:
+• add user profile picture and file upload functionality
 
-* Ruby version
+• add search bar functionality
 
-* System dependencies
+• add user-to-user following function and associated pages and link_to
 
-* Configuration
+• style app with custom html/css
 
-* Database creation
+• host app on fly.io(optional)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
