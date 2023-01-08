@@ -2,7 +2,7 @@
 
 My current list of tasks to compleete are...
 
-• add user profile picture and file upload functionality
+• add user profile picture and image upload functionality ✅
 
 • add search bar functionality
 
