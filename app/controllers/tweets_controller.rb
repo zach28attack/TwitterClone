@@ -24,7 +24,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweets = Tweet.all
     @tweet.user = current_user
-
+    
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to tweets_path, notice: "Tweet was successfully created." }

@@ -7,7 +7,7 @@ class Tweet < ApplicationRecord
 
   validates :body, length: { maximum: 240 }, allow_blank: false, unless: :tweet_id
 
-  def tweet_type #add quote tweet functionality
+  def tweet_type 
     if tweet_id?
       "retweet"
     else
