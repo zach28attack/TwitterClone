@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :photos
+  resources :photos, only: %i[create show new destroy]
   devise_for :users
   delete "users/:id", to: "users#destroy"
   resources :users, only: %i[show]
