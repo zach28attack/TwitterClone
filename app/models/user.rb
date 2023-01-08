@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: {case_sensitive: false}
   validates_length_of :username, in: 3..15
+
+  has_many :photos, dependent: :destroy
 end
