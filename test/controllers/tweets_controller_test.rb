@@ -5,17 +5,16 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tweet = tweets(:tweet)
     @user = User.create(username: "gordo", email: "test@email.com", password: "password")
-    
   end
 
   test "should get index" do
     get tweets_url
-    assert_response :success
+    assert_response :success, "index isn't rendering"
   end
 
   test "should get new" do
     get new_tweet_url
-    assert_response :success
+    assert_response :success, "new page isn't rendering"
   end
 
   test "should create tweet" do
@@ -29,7 +28,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show tweet" do
     get tweet_url(@tweet)
-    assert_response :success
+    assert_response :success, "new page isn't rendering"
   end
 
   # test "should get edit" do
