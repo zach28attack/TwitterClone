@@ -4,7 +4,7 @@ My current list of tasks to compleete are...
 
 • add user profile picture and image upload functionality ✅
 
-• add unit and integration tests
+• add unit and integration tests ✅
 
 • add search bar functionality
 
