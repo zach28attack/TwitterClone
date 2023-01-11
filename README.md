@@ -12,5 +12,4 @@ My current list of tasks to compleete are...
 
 • style app with custom html/css
 
-• host app on fly.io(optional)
 
