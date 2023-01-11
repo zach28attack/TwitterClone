@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<h1 class = "text-center"><%=image_tag @user.photos.last.image_url if !@user.photos.last.nil? %><%= @user.username%>
+<h1 class = "text-center"><%=image_tag @user.photos.last.image.url if !@user.photos.last.nil? %><%= @user.username%>
 <% if current_user == @user%>
   <%= link_to "⚙", edit_user_registration_path %>
 <%end%>
