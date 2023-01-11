@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    #image_tag @user.photos.last.image(:small).url #=> in user show page
   end
 
   def index
