@@ -16,9 +16,13 @@ class PhotosController < ApplicationController
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
+    @photo = Photo.new(image: @photo.image)
+    
     @photo.user_id = current_user.id
     respond_to do |format|
       if @photo.save
+        @photo.image_derivatives! if @photo.image_changed? # creates derivatives 
+        @photo.save
         format.html { redirect_to user_path(current_user), notice: "Photo was successfully created." }
         format.json { render :show, status: :created, location: @photo }
       else
