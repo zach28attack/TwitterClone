@@ -4,9 +4,8 @@ class ImageUploader < Shrine
       magick = ImageProcessing::MiniMagick.source(original)
    
       { 
-        large:  magick.resize_to_limit!(800, 800),
-        medium: magick.resize_to_limit!(500, 500),
-        small:  magick.resize_to_limit!(300, 300),
+        large:  magick.resize_to_limit!(300, 300),
+        small:  magick.resize_to_limit!(50, 50),
       }
     end
  
