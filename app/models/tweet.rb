@@ -1,5 +1,5 @@
 class Tweet < ApplicationRecord
-
+  self.per_page = 6
   belongs_to :user
   belongs_to :tweet, optional: true
   has_many :comments, dependent: :destroy
