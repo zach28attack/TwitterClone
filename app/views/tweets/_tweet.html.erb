@@ -21,7 +21,12 @@
 
     </div>
 
-    <%= render tweet.comments.reverse %>
+    <%
+=begin%>
+ <%= render tweet.comments.reverse %> 
+<%
+=end%>
+    <%= will_paginate tweet.comments.reverse %>
 
   </div>
 </div>
