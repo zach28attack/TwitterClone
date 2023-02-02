@@ -18,16 +18,8 @@
           <%= button_to 'Retweet', retweet_tweet_path(tweet), class: "btn btn-primary", method: :post if user_signed_in? && tweet.user.id != current_user.id%>
         </div>
       </div>
-
+      
     </div>
-
-    <%
-=begin%>
- <%= render tweet.comments.reverse %> 
-<%
-=end%>
-    <%= will_paginate tweet.comments.reverse %>
-
   </div>
 </div>
 
