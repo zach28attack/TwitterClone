@@ -4,7 +4,7 @@
 <% if user_signed_in?%>
   <%= render partial: 'comments/form', locals:{tweet: @tweet} %>
 <%end%>  
-
+<%= render @tweet.comments.reverse%>
 <div>
   <%= link_to "Back to tweets", tweets_path %>
   <% if current_user == @tweet.user %>
