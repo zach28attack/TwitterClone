@@ -3,7 +3,12 @@
     <div class="card" style="width: 35rem;">
 
       <div class="card-body">        
-        <h5 class="card-title" id="email"><%= image_tag tweet.user.photos.last.image(:small).url if tweet.user.photos.last %><%=link_to "@#{tweet.user.username}", user_path(tweet.user_id)%></h5>
+        <h5 class="card-title" id="email">
+          <%if tweet.user.photos.last%>
+          <%= image_tag tweet.user.photos.last.image(:small).url%>
+          <%end%>
+          <%=link_to "@#{tweet.user.username}", user_path(tweet.user_id)%>
+        </h5>
         <h6 class="card-subtitle mb-2 text-muted">
           <%= render partial: "shared/time_ago", locals: {tweet: tweet}%>
         </h6>
