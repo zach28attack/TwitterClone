@@ -1,0 +1,18 @@
+<div class = "container">
+  <div class = "row justify-content-center">
+    <div class="card" style="width: 25rem;">
+      <div class="card-body">        
+        <h5 class="card-title" id="username"><%="#{comment.user.username}"%></h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          <%= render partial: "shared/time_ago", locals: {tweet: comment}%>
+        </h6>
+        <p class="card-text"><%=comment.body%></p>
+        <hr>
+        <% if user_signed_in?%>
+         <%= render partial: 'likes/button', locals: {likeable: comment} %>
+        <%end%>        
+      </div>
+    </div>
+  </div>
+</div> 
+
