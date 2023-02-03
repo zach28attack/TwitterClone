@@ -44,3 +44,18 @@
     color: black; }
     .apple_pagination a:hover, .apple_pagination a:focus {
       text-decoration: underline; }
+
+img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+#profile_image {
+  display: block;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
