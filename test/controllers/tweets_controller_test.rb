@@ -8,27 +8,27 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get tweets_url
+    get tweets_path
     assert_response :success, "index isn't rendering"
   end
 
+  test "should show tweet" do
+    get tweet_path(@tweet)
+    assert_response :success, "new page isn't rendering"
+  end
+
   test "should get new" do
-    get new_tweet_url
+    get new_tweet_path
     assert_response :success, "new page isn't rendering"
   end
 
   test "should create tweet" do
     assert_difference("Tweet.count") do  
       sign_in @user  
-      post tweets_url, params: { tweet: { user_id: 1, body: "test body"} }
+      post tweets_path, params: { tweet: { user_id: 1, body: "test body"} }
     end
 
-    assert_redirected_to tweets_url
-  end
-
-  test "should show tweet" do
-    get tweet_url(@tweet)
-    assert_response :success, "new page isn't rendering"
+    assert_redirected_to tweets_path
   end
 
   # test "should get edit" do
@@ -43,9 +43,9 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy tweet" do
     assert_difference("Tweet.count", -1) do
-      delete tweet_url(@tweet)
+      delete tweet_path(@tweet)
     end
 
-    assert_redirected_to tweets_url
+    assert_redirected_to tweets_path
   end
 end
