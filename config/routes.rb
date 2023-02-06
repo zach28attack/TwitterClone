@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: %i[create destroy]
+  resources :follows, only: %i[create destroy]
   
   delete "users/:id", to: "users#destroy"
   get 'home', to: "home#home"
   root "tweets#index"
+
  end
