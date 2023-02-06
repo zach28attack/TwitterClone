@@ -8,7 +8,7 @@ My current list of tasks to complete are...
 
 • add search bar functionality
 
-• add user-to-user following function and associated pages and link_to
+• add user-to-user following function ✅
 
 • style app with custom html/css
 
