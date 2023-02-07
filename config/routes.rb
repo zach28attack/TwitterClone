@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :follows, only: %i[create destroy index] do 
     member do 
       get :following
+      get :feed
     end
   end
   
