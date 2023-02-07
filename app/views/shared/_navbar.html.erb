@@ -20,6 +20,8 @@
             <%= link_to "Profile", user_path(current_user), class: "nav-link active" %>
             <%= link_to "Following", following_follow_path(current_user), class: "nav-link active" %>
             <%= link_to "Followers", follows_path(current_user), class: "nav-link active" %>
+            <%= link_to "Followed User's Tweets", feed_follow_path(current_user), class: "nav-link active" %>
+
         <%end%>
 
       </ul>
