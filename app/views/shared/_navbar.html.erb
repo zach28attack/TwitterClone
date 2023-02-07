@@ -18,6 +18,8 @@
         <%elsif user_signed_in?%>
             <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
             <%= link_to "Profile", user_path(current_user), class: "nav-link active" %>
+            <%= link_to "Following", following_follow_path(current_user), class: "nav-link active" %>
+            <%= link_to "Followers", follows_path(current_user), class: "nav-link active" %>
         <%end%>
 
       </ul>
