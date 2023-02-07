@@ -1,5 +1,13 @@
 class FollowsController < ApplicationController
 
+  def index
+     @follows = current_user.followers.all
+  end
+
+  def following
+    @follows = current_user.following.all
+  end
+
   def create
     @follow = Follow.new(follow_params)
     if @follow.save
@@ -15,7 +23,9 @@ class FollowsController < ApplicationController
   end
 
   private 
+
   def follow_params
     params.require(:follow).permit(:following_id, :follower_id)
   end
+
 end
