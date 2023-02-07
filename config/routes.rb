@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: %i[create destroy]
-  resources :follows, only: %i[create destroy]
+  resources :follows, only: %i[create destroy index] do 
+    member do 
+      get :following
+    end
+  end
   
   delete "users/:id", to: "users#destroy"
   get 'home', to: "home#home"
