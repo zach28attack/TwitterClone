@@ -1,11 +1,22 @@
 class FollowsController < ApplicationController
 
   def index
-     @follows = current_user.followers.all
+     @followers = current_user.followers.all
   end
 
   def following
-    @follows = current_user.following.all
+    @following = current_user.following.all
+  end
+
+  def feed
+    @following = current_user.following.all # here I am iterating through all of the followed user's tweets
+    @arrayOfTweets = []                     
+    @following.each do |user|
+      user.tweets.each do |tweet|
+        @arrayOfTweets << tweet             # saving them all to a seperate variable 
+      end
+    end
+    @arrayOfTweets.sort!.reverse!           # then sorting the array of followed user's tweets by newest 
   end
 
   def create
