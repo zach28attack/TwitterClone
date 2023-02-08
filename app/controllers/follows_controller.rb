@@ -13,7 +13,7 @@ class FollowsController < ApplicationController
     @arrayOfTweets = []                     
     @following.each do |user|
       user.tweets.each do |tweet|
-        @arrayOfTweets << tweet             # saving them all to a seperate variable 
+        @arrayOfTweets << tweet             # saving them all to a seperate array 
       end
     end
     @arrayOfTweets.sort!.reverse!           # then sorting the array of followed user's tweets by newest 
