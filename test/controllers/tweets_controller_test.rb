@@ -4,7 +4,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
     @tweet = tweets(:tweet)
-    @user = User.create(username: "gordo", email: "test@email.com", password: "password")
+    @user = User.create(username: "gordo", email: "test@email.com", password: "password", name: "Guadalupe")
   end
 
   test "should get index" do
@@ -14,10 +14,11 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show tweet" do
     get tweet_path(@tweet)
-    assert_response :success, "new page isn't rendering"
+    assert_response :success, "tweet isn't rendering"
   end
 
-  test "should get new" do
+  test "should get new tweet" do
+    sign_in @user
     get new_tweet_path
     assert_response :success, "new page isn't rendering"
   end
@@ -42,6 +43,7 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
   # end
 
   test "should destroy tweet" do
+    sign_in @user
     assert_difference("Tweet.count", -1) do
       delete tweet_path(@tweet)
     end
