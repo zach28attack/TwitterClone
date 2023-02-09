@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create destroy]
   
   def index
      @followers = current_user.followers.all
