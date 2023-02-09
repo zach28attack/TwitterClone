@@ -1,5 +1,6 @@
 class FollowsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
      @followers = current_user.followers.all
   end
@@ -37,6 +38,10 @@ class FollowsController < ApplicationController
 
   def follow_params
     params.require(:follow).permit(:following_id, :follower_id)
+  end
+
+  def require_user
+    
   end
 
 end

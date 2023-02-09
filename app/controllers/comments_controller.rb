@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.save
@@ -6,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    
+    #Remove these empty actions?
   end
 
   def update

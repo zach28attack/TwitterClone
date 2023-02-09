@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
   require 'debug'
   before_action :set_tweet, only: %i[ show edit update destroy retweet ]
-
+  before_action :authenticate_user!, only: %i[ new create destroy retweet ]
+  
   # GET /tweets or /tweets.json
   def index
     @tweet = Tweet.new

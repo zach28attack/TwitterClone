@@ -36,4 +36,6 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_path, notice: 'Account was deleted successfully.'
   end
+
+  
 end
