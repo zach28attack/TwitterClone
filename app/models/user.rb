@@ -18,4 +18,10 @@ class User < ApplicationRecord
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["name", "username"]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
