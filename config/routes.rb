@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'search', to: "search#index"
   resources :photos, only: %i[create show new destroy]
   resources :users, only: %i[show]
   resources :tweets, except: %i[edit update] do
