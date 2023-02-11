@@ -68,6 +68,6 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  logger           = ActiveSupport::Logger.new(STDOUT) #a fix for the 'sprockets-rails' gem bug when logging enabled in application.rb
-  logger.formatter = config.log_formatter 
+  # logger = ActiveSupport::Logger.new(STDOUT) #fix for the 'sprockets-rails' gem bug when logging enabled in application.rb
+  # logger.formatter = config.log_formatter 
 end
