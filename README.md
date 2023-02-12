@@ -6,10 +6,10 @@ My current list of tasks to complete are...
 
 • add unit and integration tests ✅
 
-• add search bar functionality
+• add search bar functionality ✅
 
 • add user-to-user following function ✅
 
-• style app with custom html/css
+• style app with custom html/css ⏳
 
 
