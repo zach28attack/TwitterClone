@@ -14,9 +14,9 @@
               <%=link_to "@#{user.username}", user_path(user.id)%>
             </h5>
             
-            <%if current_user != user && !current_user.following.include?(user) %>
+            <%if user_signed_in? && current_user != user && !current_user.following.include?(user) %>
               <%= button_to "Follow", follows_path, class: "btn btn-success", params: {follow: {following_id: user.id, follower_id: current_user.id}} %>
-            <%elsif current_user != user && current_user.following.include?(user) %>
+            <%elsif user_signed_in? && current_user != user && current_user.following.include?(user) %>
               ✓
             <%end%>
           </div>
