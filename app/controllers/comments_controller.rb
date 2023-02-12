@@ -4,14 +4,17 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(comment_params)
     @comment.save
-    redirect_to tweet_path(id: params[:tweet_id])
+    # redirect_to tweet_path(id: params[:tweet_id])
+    respond_to do |format|
+      format.html { redirect_to tweet_path(id: params[:tweet_id]), notice: "Comment successfully created." }
+    end
   end
 
   def destroy
     @comment = Comment.find(params[:tweet_id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to tweet_url, notice: "Comment was successfully destroyed." }
+      format.html { redirect_to tweet_url, notice: "Comment successfully deleted." }
     end
   end
 
