@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   end
   
   delete "users/:id", to: "users#destroy"
-  get 'home', to: "home#home"
   root "tweets#index"
 
  end
