@@ -2,30 +2,21 @@ class TweetsController < ApplicationController
   require 'debug'
   before_action :set_tweet, only: %i[ show edit update destroy retweet ]
   before_action :authenticate_user!, only: %i[ create destroy retweet ]
-  
-  # GET /tweets or /tweets.json
+  before_action :set_new_tweet, only: %i[index new]
   def index
-    @tweet = Tweet.new
     @tweets = Tweet.all.order(created_at: :desc)
   end
 
-  # GET /tweets/1 or /tweets/1.json
   def show
   end
 
-  # GET /tweets/new
   def new
-    @tweet = Tweet.new
   end
 
-  
-
-  # POST /tweets or /tweets.json
   def create
     @tweet = Tweet.new(tweet_params)
     @tweets = Tweet.all
     @tweet.user = current_user
-    
     respond_to do |format|
       if @tweet.save
         format.html { redirect_to tweets_path, notice: "Tweet was successfully created." }
@@ -47,26 +38,24 @@ class TweetsController < ApplicationController
 
   end
 
-  
-
-  # DELETE /tweets/1 or /tweets/1.json
   def destroy
     @tweet.destroy
-
     respond_to do |format|
       format.html { redirect_to tweets_url, notice: "Tweet was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_tweet
       @tweet = Tweet.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def tweet_params
       params.require(:tweet).permit(:body, :tweet_id, :user_id)
+    end
+
+    def set_new_tweet
+      @tweet = Tweet.new
     end
 end
