@@ -1,18 +1,17 @@
 class FollowsController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
+  before_action :set_following, only: %i[following feed]
   
   def index
      @followers = current_user.followers.all
   end
 
   def following
-    @following = current_user.following.all
   end
 
-  def feed
-    @following = current_user.following.all # here I am iterating through all of the followed user's tweets
+  def feed 
     @arrayOfTweets = []                     
-    @following.each do |user|
+    @following.each do |user|               # here I am iterating through all of the followed user's tweets
       user.tweets.each do |tweet|
         @arrayOfTweets << tweet             # saving them all to a seperate array 
       end
@@ -40,8 +39,8 @@ class FollowsController < ApplicationController
     params.require(:follow).permit(:following_id, :follower_id)
   end
 
-  def require_user
-    
+  def set_following
+    @following = current_user.following.all
   end
 
 end
