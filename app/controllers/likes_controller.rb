@@ -7,12 +7,10 @@ class LikesController < ApplicationController
       flash[:notice] = @like.errors.full_messages 
     end
     redirect_back fallback_location: tweets_path 
-    #redirect_to likeable
   end
 
   def destroy
     @like = current_user.likes.find(params[:id])
-    likeable = @like.likeable
     @like.destroy
     redirect_back fallback_location: tweets_path 
   end

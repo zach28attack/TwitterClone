@@ -1,9 +1,9 @@
 class FollowsController < ApplicationController
   before_action :authenticate_user!, only: %i[create destroy]
   before_action :set_following, only: %i[following feed]
-  
+
   def index
-     @followers = current_user.followers.all
+     @followers = current_user.followers.all  #
   end
 
   def following
@@ -11,7 +11,7 @@ class FollowsController < ApplicationController
 
   def feed 
     @arrayOfTweets = []                     
-    @following.each do |user|               # here I am iterating through all of the followed user's tweets
+    @following.each do |user|               # iterating through all of the followed user's tweets
       user.tweets.each do |tweet|
         @arrayOfTweets << tweet             # saving them all to a seperate array 
       end
