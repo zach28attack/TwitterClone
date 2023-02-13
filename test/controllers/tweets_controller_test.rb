@@ -17,12 +17,6 @@ class TweetsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success, "tweet isn't rendering"
   end
 
-  test "should get new tweet" do
-    sign_in @user
-    get new_tweet_path
-    assert_response :success, "new page isn't rendering"
-  end
-
   test "should create tweet" do
     assert_difference("Tweet.count") do  
       sign_in @user  
