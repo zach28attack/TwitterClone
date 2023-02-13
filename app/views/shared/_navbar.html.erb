@@ -7,7 +7,6 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
         <%if !user_signed_in?%>
           <li class="nav-item">
             <%= link_to "Log in", new_user_session_path, class: "nav-link active" %>
@@ -21,13 +20,9 @@
             <%= link_to "Following", following_follow_path(current_user), class: "nav-link active" %>
             <%= link_to "Followers", follows_path(current_user), class: "nav-link active" %>
             <%= link_to "Followed User's Tweets", feed_follow_path(current_user), class: "nav-link active" %>
-
         <%end%>
-
       </ul>
-     
         <%= render "search/form"%>
-      
     </div>
   </div>
 </nav>

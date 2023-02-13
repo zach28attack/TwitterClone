@@ -2,7 +2,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-  attr_accessor :current_password
+  attr_accessor :current_password 
 
   validates :name, presence: true
   validates :username, uniqueness: {case_sensitive: false}
@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_many :following_relationships, foreign_key: :follower_id, class_name: 'Follow'
   has_many :following, through: :following_relationships, source: :following
 
+  # Set ransackable attributes for ransack gem.
+  # Allows attributes of a model and their allowed associations to be retrievable
   def self.ransackable_attributes(auth_object = nil)
     ["name", "username"]
   end
