@@ -1,4 +1,4 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/flash'%>
 <% if @user.photos.last%>
   <img src = <%=@user.photos.last.image_url(:large).to_s%> id = "profile_image">
 <%end%>
