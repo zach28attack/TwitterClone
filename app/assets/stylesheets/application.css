@@ -13,16 +13,13 @@
  *= require_tree .
  *= require_self
  */
-
-
- /* Apple pagination styling */
-
+/* custom styling for tweet index page, profile pic in tweet card */
 img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-
+/* custom css for user show page */
 #profile_image {
   display: block;
   border-radius: 50%;
@@ -31,7 +28,7 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-
+/* custom css for users profile pic in search results */
 #search_pic {
   width: 90px;
   height: 90px;
