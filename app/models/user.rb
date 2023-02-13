@@ -2,6 +2,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+  attr_accessor :current_password
 
   validates :name, presence: true
   validates :username, uniqueness: {case_sensitive: false}
