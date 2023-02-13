@@ -10,9 +10,6 @@ class TweetsController < ApplicationController
   def show
   end
 
-  def new
-  end
-
   def create
     @tweet = Tweet.new(tweet_params)
     @tweets = Tweet.all
@@ -32,10 +29,7 @@ class TweetsController < ApplicationController
     retweet = current_user.tweets.new(tweet_id: @tweet.id)
     if retweet.save
       redirect_to tweets_path
-    else
-      redirect_to tweets_path, alert: "unable to retweet"
     end
-
   end
 
   def destroy

@@ -42,5 +42,4 @@ class FollowsController < ApplicationController
   def set_following
     @following = current_user.following.all
   end
-
 end
