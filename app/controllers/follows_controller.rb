@@ -10,11 +10,15 @@ class FollowsController < ApplicationController
   end
 
   def feed 
+    @tweet = Tweet.new
     @arrayOfTweets = []                     
     @following.each do |user|               # iterating through all of the followed user's tweets
       user.tweets.each do |tweet|
         @arrayOfTweets << tweet             # saving them all to a seperate array 
       end
+    end
+    current_user.tweets.each do |tweet|
+      @arrayOfTweets << tweet
     end
     @arrayOfTweets.sort!.reverse!           # then sorting the array of followed user's tweets by newest 
   end
