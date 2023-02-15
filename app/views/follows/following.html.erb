@@ -1,3 +1,19 @@
-<% @following.each do |follow| %>
-  <%=follow.username%>
-<% end %>
+<div class = "users">
+  <% @following.each do |follow| %>
+    <div class="user">
+      <div class="card" style="width: 28rem;">
+        <div class = "text-center mt-3">
+          <%if follow.photos.last %>
+            <img src=<%= follow.photos.last.image_url(:large).to_s%> id= "search_pic">
+          <%end%>
+          <div class="card-body text-center justify-content-center">
+            <h5 class="card-title">
+              <div class= "fs-2"><%=follow.name%></div>
+              <%=link_to "@#{follow.username}", user_path(follow.id)%>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>

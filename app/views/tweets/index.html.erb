@@ -1,13 +1,14 @@
 <p style="color: green"><%= notice %></p>
-<h1 class = "text-center">Tweets</h1>
-<div class = "container" id="tweets">
-  <div class = "justify-content-center">
-    <%= render 'form', tweet: @tweet if user_signed_in?%>
-    <% @tweets.each do |tweet| %>
-      <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet, retweet: tweet} %>
-      <%if tweet.comments.last%>
-        <%= render partial: "comments/index_comment", locals: {comment: tweet.comments.last} %> 
-      <%end%>
-    <% end %>
+<h1 class = "title">Tweets</h1>
+  <div class = "tweets">
+    
+        <%= render 'form', tweet: @tweet if user_signed_in?%>
+
+      <% @tweets.each do |tweet| %>
+        <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet, retweet: tweet} %>
+        <%if tweet.comments.last%>
+          <%= render partial: "comments/index_comment", locals: {comment: tweet.comments.last} %> 
+        <%end%>
+      <% end %>
+    
   </div>
-</div>

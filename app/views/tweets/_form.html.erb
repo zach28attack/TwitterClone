@@ -1,6 +1,7 @@
+<div class = "form-dingo">
 <%= form_with(model: tweet) do |f| %>
   <% if tweet.errors.any? %>
-    <div style="color: red">
+    <div style="color: black">
       <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
       <ul>
         <% tweet.errors.each do |error| %>
@@ -9,8 +10,8 @@
       </ul>
     </div>
   <% end %>
-  <div class = "container">
-    <div class = "row justify-content-center">
+  
+    
       <div class="card" style="height: 20rem; width: 35rem;">
         <div class="card-body">
           <%= f.label :body, "What's on your mind?", class: "card-title col-form-label"%>
@@ -18,6 +19,7 @@
           <%= f.submit "Tweet", class: "btn btn-primary"%>
         </div>
       </div>
-    </div>
-  </div>
+    
+  
 <% end %>
+</div>

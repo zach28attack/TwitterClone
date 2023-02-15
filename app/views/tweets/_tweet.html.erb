@@ -1,34 +1,33 @@
 <%retweet = tweet if retweet == nil%>
-<div class = "container">
-  <div class = "row justify-content-center">
-    <div class="card" style="width: 35rem;">
-      <div class="card-body">
-        <div class = "container">
-          <div class = "text-center">
-              <div><%= "Retweeted by @#{retweet.user.username}" if retweet.tweet_id%></div>
-          </div>
+<div class="tweet">
+  
+  <div class="card" style="width: 35rem;">
+    <div class="card-body">
+      <div class = "container">
+        <div class = "text-center">
+            <div><%= "Retweeted by @#{retweet.user.username}" if retweet.tweet_id%></div>
         </div>
-        <h5 class="card-title" id="email">
-          <%if tweet.user.photos.last%>
-            <%= image_tag tweet.user.photos.last.image(:small).url%>
-          <%end%>
-          <%=link_to "@#{tweet.user.username}", user_path(tweet.user_id)%>
-        </h5>
-        <h6 class="card-subtitle mb-2 text-muted">
-          <%= render partial: "shared/time_ago", locals: {tweet: tweet}%>
-        </h6>
-        <p class="card-text"><%=tweet.body%></p>
-        <hr>
-        <div class= "d-flex justify-content-evenly align-items-end">
-          <% if user_signed_in?%>
-            <%= render partial: 'likes/button', locals: {likeable: tweet} %>
-          <%end%>
-          <%= link_to "💬", tweet, class: "card-link" %>
-          <%= button_to "Retweet", retweet_tweet_path(tweet), class: "btn btn-primary", method: :post if user_signed_in? && tweet.user.id != current_user.id%>
-          <%if user_signed_in? %>
-            <%= button_to "Delete", tweet_path(tweet), class: "btn btn-danger", method: :delete if tweet.user_id == current_user.id %>
-          <%end%>
-        </div>
+      </div>
+      <h5 class="card-title" id="email">
+        <%if tweet.user.photos.last%>
+          <%= image_tag tweet.user.photos.last.image(:small).url%>
+        <%end%>
+        <%=link_to "@#{tweet.user.username}", user_path(tweet.user_id)%>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        <%= render partial: "shared/time_ago", locals: {tweet: tweet}%>
+      </h6>
+      <p class="card-text"><%=tweet.body%></p>
+      <hr>
+      <div class= "d-flex justify-content-evenly align-items-end">
+        <% if user_signed_in?%>
+          <%= render partial: 'likes/button', locals: {likeable: tweet} %>
+        <%end%>
+        <%= link_to "💬", tweet, class: "card-link" %>
+        <%= button_to "Retweet", retweet_tweet_path(tweet), class: "btn btn-primary", method: :post if user_signed_in? && tweet.user.id != current_user.id%>
+        <%if user_signed_in? %>
+          <%= button_to "Delete", tweet_path(tweet), class: "btn btn-danger", method: :delete if tweet.user_id == current_user.id %>
+        <%end%>
       </div>
     </div>
   </div>

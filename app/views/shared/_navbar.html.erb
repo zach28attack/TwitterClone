@@ -1,4 +1,6 @@
-
+<%
+=begin%>
+ 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <%= link_to "TwitterClone", root_path, class: "navbar-brand" %>
@@ -25,4 +27,25 @@
         <%= render "search/form"%>
     </div>
   </div>
-</nav>
+</nav> 
+<%
+=end%>
+
+
+<ul class="side-navbar">
+  <%= link_to "TwitterClone", root_path, class: "navbar-brand" %>
+  <%if !user_signed_in?%>
+    <li class="nav-item">
+      <%= link_to "Log in", new_user_session_path, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Sign up", new_user_registration_path, class: "nav-link active" %>
+    </li>
+  <%elsif user_signed_in?%>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      <%= link_to "Profile", user_path(current_user), class: "nav-link active" %>
+      <%= link_to "Following", following_follow_path(current_user), class: "nav-link active" %>
+      <%= link_to "Followers", follows_path(current_user), class: "nav-link active" %>
+      <%= link_to "Explore all tweets", tweets_path, class: "nav-link active" %>
+  <%end%>
+</ul>
