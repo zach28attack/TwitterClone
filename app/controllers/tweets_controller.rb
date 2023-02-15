@@ -11,12 +11,13 @@ class TweetsController < ApplicationController
   end
 
   def create
+    session[:return_to] ||= request.referer # store the requesting url in the session hash
     @tweet = Tweet.new(tweet_params)
-    @tweets = Tweet.all
+    @tweets = Tweet.all.reverse
     @tweet.user = current_user
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to tweets_path, notice: "Tweet was successfully created." }
+        format.html { redirect_to session.delete(:return_to), notice: "Tweet was successfully created." } #Then redirect to it on success
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :index, status: :unprocessable_entity }
