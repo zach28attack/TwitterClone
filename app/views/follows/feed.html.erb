@@ -1,3 +1,7 @@
-<% @arrayOfTweets.each do |tweet| %>
-    <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet, retweet: tweet} %>
+<%if @arrayOfTweets.length >= 1%>
+    <% @arrayOfTweets.each do |tweet| %>
+        <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet, retweet: tweet} %>
+    <%end%>
+<%elsif @arrayOfTweets.length < 1%>
+    <h1 class="title">Follow a user to see their tweets!</h1>
 <%end%>

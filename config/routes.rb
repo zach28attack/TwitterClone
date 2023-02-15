@@ -19,6 +19,6 @@ Rails.application.routes.draw do
 
   get 'search', to: "search#index"
   delete "users/:id", to: "users#destroy"
-  root "tweets#index"
+  root "follows#feed"
 
  end
