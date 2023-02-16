@@ -1,13 +1,12 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @tweet %>
-<% if user_signed_in?%>
-  <%= render partial: 'comments/form', locals:{tweet: @tweet} %>
-<%end%>  
-<%= render @tweet.comments.reverse%>
-<div>
-  <%= link_to "Back to tweets", tweets_path %>
-  <% if current_user == @tweet.user %>
-    <%= button_to "Delete tweet", @tweet, method: :delete %>
-  <%end%>
+<div class="tweets">
+  <%= render @tweet %>
+  <% if user_signed_in?%>
+    <%= render partial: 'comments/form', locals:{tweet: @tweet} %>
+  <%end%>  
+  <%= render @tweet.comments.reverse%>
+  <div>
+    <% if current_user == @tweet.user %>
+      <%= button_to "Delete tweet", @tweet, method: :delete %>
+    <%end%>
+  </div>
 </div>

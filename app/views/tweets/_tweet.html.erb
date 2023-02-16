@@ -1,6 +1,5 @@
 <%retweet = tweet if retweet == nil%>
 <div class="tweet">
-  
   <div class="card" style="width: 35rem;">
     <div class="card-body">
       <div class = "container">
@@ -8,15 +7,15 @@
             <div><%= "Retweeted by @#{retweet.user.username}" if retweet.tweet_id%></div>
         </div>
       </div>
-      <h5 class="card-title" id="email">
+      <h5 class="card-title">
         <%if tweet.user.photos.last%>
           <%= image_tag tweet.user.photos.last.image(:small).url%>
         <%end%>
-        <%=link_to "@#{tweet.user.username}", user_path(tweet.user_id), class: "tweet-link"%>
+        <div class="tweet-card-title">
+          <%=link_to "@#{tweet.user.username}", user_path(tweet.user_id), class: "tweet-link"%>
+          <%= render partial: "shared/time_ago", locals: {tweet: tweet}%>
+        </div>
       </h5>
-      <h6 class="card-subtitle mb-2 text-muted">
-        <%= render partial: "shared/time_ago", locals: {tweet: tweet}%>
-      </h6>
       <p class="card-text"><%=tweet.body%></p>
       <hr>
       <div class= "d-flex justify-content-evenly align-items-end">

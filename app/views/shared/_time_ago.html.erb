@@ -1,18 +1,20 @@
-<div class= "text-muted fst-italic">
-  <%=tweet.created_at.month%>/<%=tweet.created_at.day%>/<%=tweet.created_at.year%></br>
-  <% day = ((Time.new - tweet.created_at)/86400).to_i %> 
-  <% minutes = (Time.new - tweet.created_at)/60 %>
-  <% if day > 1 %>
-    <%= "#{day} days ago" %>
-  <% elsif day == 1 %>
-    <%= "#{day} day ago" %>
-  <%elsif minutes == 1%>
-    <%= "1 minute ago" %>
-  <%elsif minutes  < 1%>
-    <%= "Just now" %>
-  <%elsif day < 1 && minutes < 60 %>
-    <%= "#{(minutes).to_i} minutes ago" %>
-  <%elsif%>
-    <%= minutes > 120 ? "#{(minutes/60).to_i} hours ago" : "#{(minutes/60).to_i} hour ago" %>
-  <%end%>
+<div class= "tweet-time">
+    <%=tweet.created_at.month%>/<%=tweet.created_at.day%>/<%=tweet.created_at.year%></br>
+  <div class="tweet-timer">
+    <% day = ((Time.new - tweet.created_at)/86400).to_i %> 
+    <% minutes = (Time.new - tweet.created_at)/60 %>
+    <% if day > 1 %>
+      <%= "#{day} days ago" %>
+    <% elsif day == 1 %>
+      <%= "#{day} day ago" %>
+    <%elsif minutes == 1%>
+      <%= "1 minute ago" %>
+    <%elsif minutes  < 1%>
+      <%= "Just now" %>
+    <%elsif day < 1 && minutes < 60 %>
+      <%= "#{(minutes).to_i} minutes ago" %>
+    <%elsif%>
+      <%= minutes > 120 ? "#{(minutes/60).to_i} hours ago" : "#{(minutes/60).to_i} hour ago" %>
+    <%end%>
+  </div>
 </div>
