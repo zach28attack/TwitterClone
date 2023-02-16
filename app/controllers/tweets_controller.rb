@@ -17,7 +17,7 @@ class TweetsController < ApplicationController
     @tweet.user = current_user
     respond_to do |format|
       if @tweet.save
-        format.html { redirect_to session.delete(:return_to), notice: "Tweet was successfully created." } #Then redirect to it on success
+        format.html { redirect_to session.delete(:return_to)} #Then redirect to it on success
         format.json { render :show, status: :created, location: @tweet }
       else
         format.html { render :index, status: :unprocessable_entity }
