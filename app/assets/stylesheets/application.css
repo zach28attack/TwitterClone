@@ -58,6 +58,21 @@ img {
   margin-right: 0px;
 }
 
+.tweet-time {
+  font-size: small;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 5px;
+}
+
+.tweet-timer {
+  margin-left: 5px;
+}
+
+.tweet-card-title {
+  display: flex;
+}
+
 .tweet-link {
   color: #14171A;
   text-decoration: none;
