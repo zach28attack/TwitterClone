@@ -1,5 +1,5 @@
 class FollowsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create destroy]
+  before_action :authenticate_user!, only: %i[create destroy feed following index]
   before_action :set_following, only: %i[following feed]
 
   def index
