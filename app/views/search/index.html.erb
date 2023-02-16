@@ -1,5 +1,5 @@
-<h1 class="text-center"><%= pluralize(@users.count, "Result") %></h1>
-<div id = "container">
+<h1 class="title"><%= pluralize(@users.count, "Result") %></h1>
+
   <div class = "users">
     <% @users.each do |user| %>
       <div class = "user">
@@ -24,4 +24,3 @@
       </div>
     <%end%>
   </div>
-</div>

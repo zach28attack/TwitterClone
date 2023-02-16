@@ -1,17 +1,21 @@
-<h1 class="title">Home</h1>
+<div class="tweets">
   <%if @arrayOfTweets.length >= 1%>
-      <div class="tweets">
-      <%= render partial: 'tweets/form', locals:{tweet: @tweet} if user_signed_in?%>
-      <% @arrayOfTweets.each do |tweet| %>
+      <h1 class="title">Home</h1>
+        <div class="tweet">
+          <%= render partial: 'tweets/form', locals:{tweet: @tweet} if user_signed_in?%>
+        </div>
+        <% @arrayOfTweets.each do |tweet| %>
           <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet, retweet: tweet} %>
           <%if tweet.comments.last%>
             <%= render partial: "comments/index_comment", locals: {comment: tweet.comments.last} %> 
+          <%end%>
         <%end%>
-      <%end%>
-      </div>
+      
   <%elsif @arrayOfTweets.length < 1%>
-      <div class="title" >
-      <h1>Follow a user to see their tweets</h1>
-      <h4>Use the search bar to find users to follow!</h4>
-      </div>
+    <div class="title" >
+      <h1>Be the first to tweet!</h1>
+      <%= render partial: 'tweets/form', locals:{tweet: @tweet} if user_signed_in?%>
+    </div>
   <%end%>
+</div>
+
