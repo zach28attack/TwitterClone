@@ -1,4 +1,4 @@
-<h1 class="title">Your Twitter feed</h1>
+<h1 class="title">Home</h1>
   <%if @arrayOfTweets.length >= 1%>
       <div class="tweets">
       <%= render partial: 'tweets/form', locals:{tweet: @tweet} if user_signed_in?%>
