@@ -1,6 +1,8 @@
 <ul class="side-navbar">
-  <%= link_to "TwitterClone", root_path, class: "navbar-brand" %>
+
+  
   <%if !user_signed_in?%>
+    <%= link_to "TwitterClone", tweets_path, class: "navbar-brand" %>
     <li class="nav-item">
       <%= link_to "Log in", new_user_session_path, class: "nav-link active" %>
     </li>
@@ -8,6 +10,7 @@
       <%= link_to "Sign up", new_user_registration_path, class: "nav-link active" %>
     </li>
   <%elsif user_signed_in?%>
+      <%= link_to "TwitterClone", root_path, class: "navbar-brand" %>
       <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
       <%= link_to "Profile", user_path(current_user), class: "nav-link active" %>
       <%= link_to "Following", following_follow_path(current_user), class: "nav-link active" %>
