@@ -1,39 +1,50 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<%= link_to "Add Profile Pic", new_photo_path %>
-<%= form_for(resource, as: resource_name, data: { turbo: false }, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name%>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    @<%= f.text_field :username%>
-  </div>
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-<h3>Delete my account</h3>
-<p>We hate to see you go.. <%= button_to "Delete my account", user_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to "Back", :back %>
+<h1 class="title">Edit my profile</h1>
+<div class="user-form">
+  <%= form_for(resource, as: resource_name,data: { turbo: false }, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <form>
+      <%= link_to "Add Profile Pic", new_photo_path %>
+      <div class="mb-3">
+        <label class="form-label"><%= f.label :email %><br /></label>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label"><%= f.label :username %><br /></label>
+        <%= f.text_field :username, autofocus: true, autocomplete: "@username", class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <label class="form-label"><%= f.label :name %><br /></label>
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label class="col-form-label"><%= f.label :password %></label>
+        </div>
+        <div class="col-6">
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="col-auto">
+          <span id="passwordHelpInline" class="form-text">
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+          </span>
+        </div>
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="mb-3 col-6">
+          <label for="exampleInputPassword1" class="form-label">    <%= f.label :password_confirmation %></label>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+      </div>
+      <%= f.submit "Update", class: "btn btn-primary" %>
+    </form>
+  <%end%>
+  <h3 class= "delete-title">Delete my account</h3>
+  <p class= "delete-button">We hate to see you go.. <%= button_to "Delete my account", user_registration_path, form: {data: { turbo_confirm: "Are you sure?" }}, method: :delete, class: "btn btn-danger"%></p>
+</div>

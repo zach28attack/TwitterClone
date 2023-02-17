@@ -13,37 +13,19 @@
  *= require_tree .
  *= require_self
  */
-/* custom styling for tweet index page, profile pic in tweet card */
+
+/* profile pic in tweet card */
 img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
 }
-
-/* custom css for user show page */
-#profile-image {
-  display: flex;
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  margin-left: auto;
-  margin-right: auto;
-  grid-column: 2/3;
-  
-}
-
-/* custom css for users profile pic in search results */
-#search_pic {
-  width: 90px;
-  height: 90px;
-}
-
+/* general grid container */
 #container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  
 }
-
+/* tweet styling */
 .tweets {
   width: 100%;
   grid-row: 2 / 3;
@@ -83,13 +65,13 @@ img {
 .tweet-link:hover {
   color: #1DA1F2;
 }
-
+/* general styling for page titles */
 .title {
   text-align: center;
   margin-top: 10px;
   grid-column: 2 / 3;
 }
-
+/* User styling */
 .users {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
@@ -103,6 +85,25 @@ img {
   border-radius: 5px;
 }
 
+.user-form {
+  grid-column: 2 / 3;
+}
+/* User Photo styling */
+#profile-image {
+  display: flex;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  grid-column: 2/3;
+}
+/* form for Photo */
+.image-form {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+/* Navbar styling */
 .side-navbar {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -110,7 +111,6 @@ img {
   display: flex;
   flex-direction: column;
   padding: 0;
-  
 }
 .navbar-link{
   text-decoration: none;
@@ -125,7 +125,7 @@ img {
 .navbar-link:active {
   color: #0d6efd;
 }
-
+/* unique form name and styling for forms */
 .form-dingo {
   margin-top: 20px;
   margin-bottom: 10px;
@@ -133,11 +133,22 @@ img {
   padding-left: 30px;
   padding-right: 30px;
 }
-
+/* twitter logo */
 .twitter-img {
   height: 100px;
 }
-
-.form {
+/* custom css for users profile pic in search results */
+#search_pic {
+  width: 90px;
+  height: 90px;
+}
+/* Delete styling */
+.delete-title {
   grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.delete-button {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
 }

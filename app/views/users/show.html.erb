@@ -14,9 +14,7 @@
       <%end%>
     <%end%>
   </h1>
-  
-    <% @user.tweets.each do |tweet| %>
-      <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet} %>
-    <% end %>
-  
+  <% @user.tweets.each do |tweet| %>
+    <%= render partial: "tweets/#{tweet.tweet_type}", locals: {tweet: tweet} %>
+  <% end %>
 </div>
