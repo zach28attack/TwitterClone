@@ -1,15 +1,13 @@
-📖 This app is uncompleted. 
+📖 This app is completed. 
 
-My current list of tasks to complete are...
-
-• add user profile picture and image upload functionality ✅
-
-• add unit and integration tests ✅
-
-• add search bar functionality ✅
-
-• add user-to-user following function ✅
-
-• style app with custom html/css ⏳
-
-
+I challenged myself with this project. I came into it with only a basic understanding of how to create basic CRUD apps. 
+I learned a variety of things such as:
+  - image uploading using the Shrine gem
+  - polymorphic associations 
+  - "reposting"
+  - added search functionality using the Ransack gem
+  - custom css
+    - css grid
+    - flexbox
+Just to name a few.
+Overall this project was extremely beneficial for me and i'm excited to start another.
