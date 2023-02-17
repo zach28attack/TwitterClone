@@ -2,7 +2,7 @@
   <div class = "row justify-content-center">
     <div class="card" style="width: 25rem;">
       <div class="card-body">        
-        <h5 class="card-title" id="username"><%="#{comment.user.username}"%></h5>
+        <h5 class="card-title" id="username"><%= image_tag comment.user.photos.last.image(:small).url if comment.user.photos.last %>@<%="#{comment.user.username}"%></h5>
         <h6 class="card-subtitle mb-2 text-muted">
           <%= render partial: "shared/time_ago", locals: {tweet: comment}%>
         </h6>
