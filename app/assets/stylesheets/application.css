@@ -151,3 +151,8 @@ img {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
 }
+
+.comment-actions {
+  display: flex;
+  justify-content: space-between;
+}
