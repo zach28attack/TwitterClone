@@ -25,7 +25,7 @@
         <%= link_to "💬", tweet, class: "tweet-link" %>
         <%= button_to "Retweet", retweet_tweet_path(tweet), class: "btn btn-primary", method: :post if user_signed_in? && tweet.user.id != current_user.id && retweet == tweet%>
         <%if user_signed_in? %>
-          <%= button_to "Delete", tweet_path(tweet), class: "btn btn-danger", method: :delete if tweet.user_id == current_user.id %>
+          <%= button_to "Delete", tweet_path(tweet), class: "btn btn-danger", form: { data: {turbo_confirm: "Are you sure?"}},method: :delete if tweet.user_id == current_user.id %>
         <%end%>
       </div>
     </div>
