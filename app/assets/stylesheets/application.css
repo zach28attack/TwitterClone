@@ -88,6 +88,10 @@ img {
 .user-form {
   grid-column: 2 / 3;
 }
+
+.name {
+  font-size: medium;
+}
 /* User Photo styling */
 #profile-image {
   display: flex;
