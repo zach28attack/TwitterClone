@@ -10,5 +10,3 @@ I learned a variety of things such as:
     - css grid
     - flexbox
     
-Just to name a few.
-Overall this project was extremely beneficial for me and i'm excited to start another.
